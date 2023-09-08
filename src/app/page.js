@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const startQRCodeScanner = async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        await navigator.mediaDevices.getUserMedia({ video: true });
         
         // Camera access is granted; you can start scanning QR codes here
         const scanner = new Html5QrcodeScanner('reader', {
