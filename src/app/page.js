@@ -1,4 +1,4 @@
-'use client'
+import Image from 'next/image';
 import { Html5QrcodeScanner, Html5QrcodeSupportedFormats } from 'html5-qrcode';
 import { useEffect, useState } from 'react';
 
@@ -16,7 +16,7 @@ export default function Home() {
     const startQRCodeScanner = async () => {
       try {
         await navigator.mediaDevices.getUserMedia({ video: true });
-        
+
         // Camera access is granted; you can start scanning QR codes here
         const scanner = new Html5QrcodeScanner('reader', {
           qrbox: {
@@ -46,7 +46,6 @@ export default function Home() {
         return () => {
           scanner.clear();
           scanner.stop();
-          stream.getTracks().forEach((track) => track.stop()); // Stop the camera stream
         };
       } catch (error) {
         // Handle permission denied or other errors
