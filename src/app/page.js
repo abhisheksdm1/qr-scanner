@@ -2,8 +2,7 @@
 import Image from 'next/image';
 import { Html5QrcodeScanner, Html5QrcodeSupportedFormats } from 'html5-qrcode';
 import { useEffect, useState } from 'react';
-
-
+import AddToHomeScreenButton, { useAddToHomescreenPrompt } from "@/components/AddToHomeScreenButton";
 
 
 export default function Home() {
@@ -79,6 +78,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
+      <AddToHomeScreenButton/>
       <h1 className="w-full bg-orange-500 pt-4 pb-4 text-center text-white">QR code scanner in react</h1>
       <br />
       {scanResult ? (
